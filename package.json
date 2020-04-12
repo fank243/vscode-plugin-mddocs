@@ -1,0 +1,122 @@
+{
+    "name": "mddocs",
+    "displayName": "MdDocs",
+    "description": "Markdown 文档管理",
+    "version": "1.2.4",
+    "publisher": "fangle",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://www.fank243.com"
+    },
+    "homepage": "https://github.com/fank243/vscode-plugin-mddocs.git/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fank243/vscode-plugin-mddocs"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.publishMd",
+        "onCommand:extension.updateMd",
+        "onCommand:extension.deleteMd",
+        "onCommand:extension.searchMd",
+        "onCommand:extension.uploadImg",
+        "onLanguage:markdown"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.publishMd",
+                "title": "mddocs：发布 Markdown"
+            },
+            {
+                "command": "extension.updateMd",
+                "title": "mddocs：更新 Markdown"
+            },
+            {
+                "command": "extension.deleteMd",
+                "title": "mddocs：删除 Markdown"
+            },
+            {
+                "command": "extension.searchMd",
+                "title": "mddocs：搜索 Markdown"
+            },
+            {
+                "command": "extension.uploadImg",
+                "title": "mddocs：上传图片"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "MdDocs",
+            "properties": {
+                "mddocs.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否启用MdDocs"
+                },
+                "mddocs.path": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "启用后，上传图片将添加指定前缀"
+                },
+                "mddocs.accessToken": {
+                    "type": "string",
+                    "default": "",
+                    "description": "授权访问凭证"
+                },
+                "mddocs.apiUrl": {
+                    "type": "string",
+                    "default": "",
+                    "description": "MdDocs Restful Api 请求根路径"
+                },
+                "mddocs.publishUri": {
+                    "type": "string",
+                    "default": "/api/publishMd",
+                    "description": "发布文档Uri地址"
+                },
+                "mddocs.modifyUri": {
+                    "type": "string",
+                    "default": "/api/updateMd",
+                    "description": "修改文档Uri地址"
+                },
+                "mddocs.deleteUri": {
+                    "type": "string",
+                    "default": "/api/deleteMd",
+                    "description": "删除文档Uri地址"
+                },
+                "mddocs.searchUri": {
+                    "type": "string",
+                    "default": "/api/searchMd",
+                    "description": "搜索文档Uri地址"
+                },
+                "mddocs.uploadImageUri": {
+                    "type": "string",
+                    "default": "/api/uploadImage",
+                    "description": "上传图片Uri地址"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^8.10.38",
+        "eslint": "^4.11.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21"
+    },
+    "dependencies": {
+        "front-matter": "^3.0.1",
+        "request": "^2.88.0",
+        "vsce": "^1.53.0"
+    }
+}
